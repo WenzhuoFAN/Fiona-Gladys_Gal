@@ -1,10 +1,10 @@
-# FionaGladysGal Project Structure
+# FionaGladysGal
 
 ## Current Layout
 
 ```text
 FionaGladysGal/
-+-- PROJECT_STRUCTURE.md
++-- README.md
 +-- options.rpy
 +-- gui.rpy
 +-- screens.rpy
@@ -49,6 +49,14 @@ FionaGladysGal/
 - `story/start.rpy`: only the project entry label and top-level flow handoff.
 - `story/prologue/` and `story/chapter1/`: only chapter content and scene jumps.
 - `story/routes/` and `story/endings/`: only branching and ending flow.
+
+## 层级说明
+
+- `options.rpy`、`gui.rpy`、`screens.rpy`：只负责系统配置、界面样式和通用 UI。
+- `core/`：只放可复用的底层定义，比如角色、立绘声明、通用变换、变量、音频别名。
+- `story/start.rpy`：只作为主入口，负责把流程交给序章或主线起点。
+- `story/prologue/` 和 `story/chapter1/`：只写剧情内容、演出、选择和章节之间的跳转。
+- `story/routes/` 和 `story/endings/`：只处理分线、收束和结局，不反向承担底层定义工作。
 
 ## Naming Rules
 

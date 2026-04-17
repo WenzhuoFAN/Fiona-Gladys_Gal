@@ -1,0 +1,5 @@
+define x = Character("心宜", color="#C93773", image="xinyi")
+define s = Character("思诺", color="#6FA8DC", image="sinuo")
+define n = Character("乃琳", color="#9D7AD8")
+define j = Character("嘉然", color="#F39A55")
+define b = Character("贝拉", color="#5DA67A")

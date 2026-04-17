@@ -1,0 +1,12 @@
+{
+  "files.associations": {
+    "*.rpy": "plaintext",
+    "*.rpym": "plaintext",
+    "*.rpymc": "plaintext"
+  },
+  "python.analysis.exclude": [
+    "**/*.rpy",
+    "**/*.rpym",
+    "**/*.rpymc"
+  ]
+}

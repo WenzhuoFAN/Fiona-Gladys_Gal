@@ -1,0 +1,20 @@
+# Ren'Py runtime output
+/saves/
+/cache/
+
+# Compiled script files
+/**/*.rpyc
+/**/*.rpymc
+
+# Editor and backup files
+/**/*.bak
+/**/*.new
+/**/*.old
+
+# Local logs and dumps
+/errors.txt
+/files.txt
+/image_cache.txt
+/log.txt
+/save_dump.txt
+/traceback.txt

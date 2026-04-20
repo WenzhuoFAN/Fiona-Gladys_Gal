@@ -4,84 +4,93 @@
 
 Current recommended project layout:
 
+Ren'Py runtime files live under `game/`.
+
 当前推荐的项目目录结构：
+
+Ren'Py 的运行文件都放在 `game/` 下。
 
 ```text
 FionaGladysGal/
 +-- README.md
-+-- options.rpy
-+-- gui.rpy
-+-- screens.rpy
-+-- core/
-|   +-- characters.rpy
-|   +-- images.rpy
-|   +-- bg_images.rpy
-|   +-- cg_images.rpy
-|   +-- transforms.rpy
-|   +-- variables.rpy
-|   +-- audio.rpy
-|   `-- common_events.rpy
-+-- story/
-|   +-- start.rpy
-|   +-- prologue/
-|   |   +-- 00_intro.rpy
-|   |   +-- 01_practice_days.rpy
-|   |   `-- 02_regret_night.rpy
-|   +-- chapter1/
-|   |   +-- cha1_00_reunion.rpy
-|   |   +-- cha1_01_old_stage.rpy
-|   |   `-- cha1_02_group_reconnect.rpy
-|   +-- routes/
-|   |   +-- common_route.rpy
-|   |   +-- xinyi_route.rpy
-|   |   `-- sinuo_route.rpy
-|   `-- endings/
-|       `-- true_end.rpy
-+-- images/
-|   +-- bg/
-|   |   +-- school/
-|   |   +-- city/
-|   |   +-- stage/
-|   |   +-- interior/
-|   |   `-- special/
-|   +-- cg/
++-- game/
+|   +-- options.rpy
+|   +-- gui.rpy
+|   +-- screens.rpy
+|   +-- SourceHanSansLite.ttf
+|   +-- core/
+|   |   +-- characters.rpy
+|   |   +-- images.rpy
+|   |   +-- bg_images.rpy
+|   |   +-- cg_images.rpy
+|   |   +-- transforms.rpy
+|   |   +-- variables.rpy
+|   |   +-- audio.rpy
+|   |   `-- common_events.rpy
+|   +-- story/
+|   |   +-- start.rpy
 |   |   +-- prologue/
+|   |   |   +-- 00_intro.rpy
+|   |   |   +-- 01_practice_days.rpy
+|   |   |   `-- 02_regret_night.rpy
 |   |   +-- chapter1/
+|   |   |   +-- cha1_00_reunion.rpy
+|   |   |   +-- cha1_01_old_stage.rpy
+|   |   |   `-- cha1_02_group_reconnect.rpy
 |   |   +-- routes/
-|   |   |   +-- xinyi/
-|   |   |   `-- sinuo/
+|   |   |   +-- common_route.rpy
+|   |   |   +-- xinyi_route.rpy
+|   |   |   `-- sinuo_route.rpy
 |   |   `-- endings/
-|   +-- ui/
-|   `-- characters/
-`-- audio/
-    +-- bgm/
-    +-- se/
-    `-- voice/
+|   |       `-- true_end.rpy
+|   +-- images/
+|   |   +-- bg/
+|   |   |   +-- school/
+|   |   |   +-- city/
+|   |   |   +-- stage/
+|   |   |   +-- interior/
+|   |   |   `-- special/
+|   |   +-- cg/
+|   |   |   +-- prologue/
+|   |   |   +-- chapter1/
+|   |   |   +-- routes/
+|   |   |   |   +-- xinyi/
+|   |   |   |   `-- sinuo/
+|   |   |   `-- endings/
+|   |   +-- ui/
+|   |   `-- characters/
+|   +-- audio/
+|   |   +-- bgm/
+|   |   +-- se/
+|   |   `-- voice/
+|   +-- libs/
+|   `-- tl/
+`-- System.Drawing.Drawing2D.GraphicsPath
 ```
 
 ## Layer Rules / 层级规则
 
 English:
 
-- `options.rpy`, `gui.rpy`, `screens.rpy`: only system and UI settings.
-- `core/`: only reusable definitions such as characters, images, transforms, variables, and audio aliases.
-- `core/images.rpy`: only standing character art and expression aliases.
-- `core/bg_images.rpy`: only reusable background registrations and background naming templates.
-- `core/cg_images.rpy`: only CG registrations and route/chapter CG naming templates.
-- `story/start.rpy`: only the project entry label and top-level flow handoff.
-- `story/prologue/` and `story/chapter1/`: only chapter content, scene logic, and jumps.
-- `story/routes/` and `story/endings/`: only branching flow and endings.
+- `game/options.rpy`, `game/gui.rpy`, `game/screens.rpy`: only system and UI settings.
+- `game/core/`: only reusable definitions such as characters, images, transforms, variables, and audio aliases.
+- `game/core/images.rpy`: only standing character art and expression aliases.
+- `game/core/bg_images.rpy`: only reusable background registrations and background naming templates.
+- `game/core/cg_images.rpy`: only CG registrations and route/chapter CG naming templates.
+- `game/story/start.rpy`: only the project entry label and top-level flow handoff.
+- `game/story/prologue/` and `game/story/chapter1/`: only chapter content, scene logic, and jumps.
+- `game/story/routes/` and `game/story/endings/`: only branching flow and endings.
 
 中文：
 
-- `options.rpy`、`gui.rpy`、`screens.rpy`：只负责系统配置、界面样式和通用 UI。
-- `core/`：只放可复用的底层定义，比如角色、立绘声明、通用变换、变量和音频别名。
-- `core/images.rpy`：只放人物立绘和表情差分声明。
-- `core/bg_images.rpy`：只放背景图声明和背景命名模板。
-- `core/cg_images.rpy`：只放 CG 声明和章节/路线 CG 命名模板。
-- `story/start.rpy`：只作为主入口，负责把流程交给序章或主线起点。
-- `story/prologue/` 和 `story/chapter1/`：只写章节剧情、场景演出和跳转逻辑。
-- `story/routes/` 和 `story/endings/`：只处理分线推进和结局收束。
+- `game/options.rpy`、`game/gui.rpy`、`game/screens.rpy`：只负责系统配置、界面样式和通用 UI。
+- `game/core/`：只放可复用的底层定义，比如角色、立绘声明、通用变换、变量和音频别名。
+- `game/core/images.rpy`：只放人物立绘和表情差分声明。
+- `game/core/bg_images.rpy`：只放背景图声明和背景命名模板。
+- `game/core/cg_images.rpy`：只放 CG 声明和章节/路线 CG 命名模板。
+- `game/story/start.rpy`：只作为主入口，负责把流程交给序章或主线起点。
+- `game/story/prologue/` 和 `game/story/chapter1/`：只写章节剧情、场景演出和跳转逻辑。
+- `game/story/routes/` 和 `game/story/endings/`：只处理分线推进和结局收束。
 
 ## Naming Rules / 命名规则
 
@@ -111,10 +120,10 @@ English:
 
 - Background folders are grouped by reusable space, not by chapter.
 - CG folders are grouped by chapter or route, because CG is usually tied to a one-off event.
-- Background path rule: `images/bg/<category>/<location>_<time>[_weather][_mood].<ext>`
-- Background image rule: `image bg <category>_<location>_<time>[_weather][_mood] = "<path>"`
-- CG path rule: `images/cg/<arc>/<event_name>.<ext>` or `images/cg/routes/<route>/<event_name>.<ext>`
-- CG image rule: `image cg <arc>_<event_name> = "<path>"`
+- Background path rule: `game/images/bg/<category>/<location>_<time>[_weather][_mood].<ext>`
+- Background image rule: `image bg <category>_<location>_<time>[_weather][_mood] = "images/bg/<category>/<location>_<time>[_weather][_mood].<ext>"`
+- CG path rule: `game/images/cg/<arc>/<event_name>.<ext>` or `game/images/cg/routes/<route>/<event_name>.<ext>`
+- CG image rule: `image cg <arc>_<event_name> = "images/cg/<arc>/<event_name>.<ext>"`
 - Use `scene bg ...` for location/time changes.
 - Use `scene cg ...` for full-screen event illustrations.
 - Recommended formats:
@@ -126,10 +135,10 @@ English:
 
 - 背景图目录按“可复用地点”分，不按章节分。
 - CG 目录按“章节/路线事件”分，因为 CG 通常是一次性关键画面。
-- 背景图路径规则：`images/bg/<category>/<location>_<time>[_weather][_mood].<ext>`
-- 背景图声明规则：`image bg <category>_<location>_<time>[_weather][_mood] = "<path>"`
-- CG 路径规则：`images/cg/<arc>/<event_name>.<ext>` 或 `images/cg/routes/<route>/<event_name>.<ext>`
-- CG 声明规则：`image cg <arc>_<event_name> = "<path>"`
+- 背景图路径规则：`game/images/bg/<category>/<location>_<time>[_weather][_mood].<ext>`
+- 背景图声明规则：`image bg <category>_<location>_<time>[_weather][_mood] = "images/bg/<category>/<location>_<time>[_weather][_mood].<ext>"`
+- CG 路径规则：`game/images/cg/<arc>/<event_name>.<ext>` 或 `game/images/cg/routes/<route>/<event_name>.<ext>`
+- CG 声明规则：`image cg <arc>_<event_name> = "images/cg/<arc>/<event_name>.<ext>"`
 - 地点或时间变化时，用 `scene bg ...`
 - 关键事件全屏插图时，用 `scene cg ...`
 - 推荐格式：
@@ -141,19 +150,19 @@ English:
 
 English:
 
-- `images/bg/school/`: gate, classroom, hallway, rooftop, practice room
-- `images/bg/city/`: street, station, riverside, plaza
-- `images/bg/stage/`: backstage, stage, rehearsal hall, auditorium
-- `images/bg/interior/`: cafe, apartment, office, lounge
-- `images/bg/special/`: memory, dream, filtered variants, stylized plates
+- `game/images/bg/school/`: gate, classroom, hallway, rooftop, practice room
+- `game/images/bg/city/`: street, station, riverside, plaza
+- `game/images/bg/stage/`: backstage, stage, rehearsal hall, auditorium
+- `game/images/bg/interior/`: cafe, apartment, office, lounge
+- `game/images/bg/special/`: memory, dream, filtered variants, stylized plates
 
 中文：
 
-- `images/bg/school/`：校门、教室、走廊、天台、练习室
-- `images/bg/city/`：街道、车站、江边、广场
-- `images/bg/stage/`：后台、舞台、排练厅、观众席
-- `images/bg/interior/`：咖啡店、公寓、办公室、休息室
-- `images/bg/special/`：回忆、梦境、滤镜版背景、特殊演出底图
+- `game/images/bg/school/`：校门、教室、走廊、天台、练习室
+- `game/images/bg/city/`：街道、车站、江边、广场
+- `game/images/bg/stage/`：后台、舞台、排练厅、观众席
+- `game/images/bg/interior/`：咖啡店、公寓、办公室、休息室
+- `game/images/bg/special/`：回忆、梦境、滤镜版背景、特殊演出底图
 
 ## Script Examples / 剧本示例
 
@@ -174,42 +183,42 @@ scene cg chapter1_first_reunion with fade
 
 English:
 
-- New character definitions go into `core/characters.rpy`.
-- New standing art and expression declarations go into `core/images.rpy`.
-- New reusable background declarations go into `core/bg_images.rpy`.
-- New chapter/route CG declarations go into `core/cg_images.rpy`.
-- Shared transforms and animation helpers go into `core/transforms.rpy`.
-- Common flags and route variables go into `core/variables.rpy`.
-- Plot writing should continue from `story/prologue/` and `story/chapter1/`.
-- Shared repeated scenes should be extracted into `core/common_events.rpy`.
+- New character definitions go into `game/core/characters.rpy`.
+- New standing art and expression declarations go into `game/core/images.rpy`.
+- New reusable background declarations go into `game/core/bg_images.rpy`.
+- New chapter/route CG declarations go into `game/core/cg_images.rpy`.
+- Shared transforms and animation helpers go into `game/core/transforms.rpy`.
+- Common flags and route variables go into `game/core/variables.rpy`.
+- Plot writing should continue from `game/story/prologue/` and `game/story/chapter1/`.
+- Shared repeated scenes should be extracted into `game/core/common_events.rpy`.
 
 中文：
 
-- 新角色定义写入 `core/characters.rpy`。
-- 新立绘和表情差分声明写入 `core/images.rpy`。
-- 新背景图声明写入 `core/bg_images.rpy`。
-- 新章节/路线 CG 声明写入 `core/cg_images.rpy`。
-- 通用站位、演出变换和动画辅助写入 `core/transforms.rpy`。
-- 公共旗标、好感变量和路线变量写入 `core/variables.rpy`。
-- 剧情正文继续在 `story/prologue/` 和 `story/chapter1/` 中推进。
-- 多章节重复使用的公共片段应抽到 `core/common_events.rpy`。
+- 新角色定义写入 `game/core/characters.rpy`。
+- 新立绘和表情差分声明写入 `game/core/images.rpy`。
+- 新背景图声明写入 `game/core/bg_images.rpy`。
+- 新章节/路线 CG 声明写入 `game/core/cg_images.rpy`。
+- 通用站位、演出变换和动画辅助写入 `game/core/transforms.rpy`。
+- 公共旗标、好感变量和路线变量写入 `game/core/variables.rpy`。
+- 剧情正文继续在 `game/story/prologue/` 和 `game/story/chapter1/` 中推进。
+- 多章节重复使用的公共片段应抽到 `game/core/common_events.rpy`。
 
 ## Suggested Next Steps / 建议的下一步
 
 English:
 
-1. Fill in the real prologue beats in `story/prologue/`.
-2. Replace placeholder narration in `story/chapter1/` with the reunion draft.
-3. Add reusable backgrounds under `images/bg/` and register them in `core/bg_images.rpy`.
-4. Add event CG under `images/cg/` and register them in `core/cg_images.rpy`.
-5. Add BGM and SFX aliases in `core/audio.rpy`.
+1. Fill in the real prologue beats in `game/story/prologue/`.
+2. Replace placeholder narration in `game/story/chapter1/` with the reunion draft.
+3. Add reusable backgrounds under `game/images/bg/` and register them in `game/core/bg_images.rpy`.
+4. Add event CG under `game/images/cg/` and register them in `game/core/cg_images.rpy`.
+5. Add BGM and SFX aliases in `game/core/audio.rpy`.
 6. Decide where the common route ends and where `route_xinyi` / `route_sinuo` begin.
 
 中文：
 
-1. 把 `story/prologue/` 里的占位内容替换成正式序章剧情。
-2. 把 `story/chapter1/` 里的占位旁白替换成重逢章节草案。
-3. 把可复用背景图放进 `images/bg/`，并在 `core/bg_images.rpy` 里统一注册。
-4. 把事件 CG 放进 `images/cg/`，并在 `core/cg_images.rpy` 里统一注册。
-5. 在 `core/audio.rpy` 里补全 BGM 和音效别名。
+1. 把 `game/story/prologue/` 里的占位内容替换成正式序章剧情。
+2. 把 `game/story/chapter1/` 里的占位旁白替换成重逢章节草案。
+3. 把可复用背景图放进 `game/images/bg/`，并在 `game/core/bg_images.rpy` 里统一注册。
+4. 把事件 CG 放进 `game/images/cg/`，并在 `game/core/cg_images.rpy` 里统一注册。
+5. 在 `game/core/audio.rpy` 里补全 BGM 和音效别名。
 6. 明确共通线结束点，以及 `route_xinyi` / `route_sinuo` 的分流位置。

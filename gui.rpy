@@ -25,32 +25,42 @@ define config.check_conflicting_properties = True
 ## 界面中文本的颜色。
 
 ## 整个界面中使用的强调色，用于标记和突出显示文本。
-define gui.accent_color = '#cc0066'
+define gui.accent_color = '#ff4b97'
 
 ## 当文本按钮既未被选中也未被悬停时使用的颜色。
-define gui.idle_color = '#707070'
+define gui.idle_color = '#f6f1fb'
 
 ## 小的颜色用于小的文本，需要更亮/更暗才能达到同样的效果。
-define gui.idle_small_color = '#606060'
+define gui.idle_small_color = '#d8cfe3'
 
 ## 当按钮和滑条被悬停时使用的颜色。
-define gui.hover_color = '#cc0066'
+define gui.hover_color = '#88bcff'
 
 ## 当文本按钮被选中但非焦点时使用的颜色。当一个按钮为当前屏幕或设置选项值时，会
 ## 处于选中状态。
-define gui.selected_color = '#555555'
+define gui.selected_color = '#ffc2dd'
 
 ## 当文本按钮无法被选择时使用的颜色。
-define gui.insensitive_color = '#7070707f'
+define gui.insensitive_color = '#f6f1fb7f'
 
 ## 滑条未填充的部分使用的颜色。这些颜色不直接使用，但在重新生成条形图像文件时使
 ## 用。
-define gui.muted_color = '#e066a3'
-define gui.hover_muted_color = '#ea99c1'
+define gui.muted_color = '#6673c7'
+define gui.hover_muted_color = '#f38dbe'
 
 ## 对话和菜单选择文本使用的颜色。
-define gui.text_color = '#404040'
-define gui.interface_text_color = '#404040'
+define gui.text_color = '#f6f1fb'
+define gui.interface_text_color = '#f6f1fb'
+
+## 双主角主题色。
+define gui.dual_blue = '#7da8ff'
+define gui.dual_pink = '#ff5ca8'
+define gui.surface_dark = '#0b1020'
+define gui.surface_panel = '#111728d9'
+define gui.surface_panel_soft = '#1a2135b8'
+define gui.surface_line = '#ffffff1a'
+define gui.glow_blue = '#203a7a55'
+define gui.glow_pink = '#b74b8e55'
 
 
 ## 字体和字体大小 #####################################################################
@@ -65,16 +75,16 @@ define gui.name_text_font = "SourceHanSansLite.ttf"
 define gui.interface_text_font = "SourceHanSansLite.ttf"
 
 ## 普通对话文本的大小。
-define gui.text_size = 66
+define gui.text_size = 60
 
 ## 角色名称的大小。
-define gui.name_text_size = 90
+define gui.name_text_size = 64
 
 ## 游戏用户界面中文本的大小。
-define gui.interface_text_size = 66
+define gui.interface_text_size = 60
 
 ## 游戏用户界面中标签的大小。
-define gui.label_text_size = 72
+define gui.label_text_size = 66
 
 ## 通知屏幕上文本的大小。
 define gui.notify_text_size = 48
@@ -86,7 +96,12 @@ define gui.title_text_size = 150
 ## 标题和游戏菜单 #####################################################################
 
 ## 标题菜单和游戏菜单使用的图像。
-define gui.main_menu_background = "gui/main_menu.png"
+define gui.main_menu_background = Transform(
+    "images/ui/images/ui/main_menu.png",
+    zoom=1.122,
+    xalign=0.5,
+    yalign=0.5,
+)
 define gui.game_menu_background = "gui/game_menu.png"
 
 
@@ -232,7 +247,7 @@ define gui.file_slot_rows = 2
 ## 这些变量控制各种用户界面元素的位置和间距。
 
 ## 导航按钮左侧相对于屏幕左侧的位置。
-define gui.navigation_xpos = 120
+define gui.navigation_xpos = 144
 
 ## 快进指示器的垂直位置。
 define gui.skip_ypos = 30
@@ -244,7 +259,7 @@ define gui.notify_ypos = 135
 define gui.choice_spacing = 66
 
 ## 标题菜单和游戏菜单的导航部分中的按钮。
-define gui.navigation_spacing = 12
+define gui.navigation_spacing = 18
 
 ## 控制设置项目之间的间隔量。
 define gui.pref_spacing = 30

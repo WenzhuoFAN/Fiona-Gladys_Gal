@@ -1,5 +1,7 @@
 label pro_00_intro:
 
+    scene bg school_hallway_day with fade
+
     show xinyi normal at stand_left
     show sinuo normal at stand_right
 

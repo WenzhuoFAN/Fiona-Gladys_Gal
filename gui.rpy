@@ -206,16 +206,16 @@ define gui.quick_button_text_selected_color = gui.accent_color
 ##
 ## 游戏内菜单使用的选项按钮。
 
-define gui.choice_button_width = 2370
+define gui.choice_button_width = 1760
 define gui.choice_button_height = None
 define gui.choice_button_tile = False
-define gui.choice_button_borders = Borders(300, 15, 300, 15)
+define gui.choice_button_borders = Borders(24, 24, 24, 24)
 define gui.choice_button_text_font = gui.text_font
 define gui.choice_button_text_size = gui.text_size
 define gui.choice_button_text_xalign = 0.5
-define gui.choice_button_text_idle_color = '#707070'
-define gui.choice_button_text_hover_color = "#ffffff"
-define gui.choice_button_text_insensitive_color = '#7070707f'
+define gui.choice_button_text_idle_color = gui.idle_color
+define gui.choice_button_text_hover_color = gui.hover_color
+define gui.choice_button_text_insensitive_color = gui.insensitive_color
 
 
 ## 存档按钮 ########################################################################
@@ -256,7 +256,7 @@ define gui.skip_ypos = 30
 define gui.notify_ypos = 135
 
 ## 菜单选项之间的间距。
-define gui.choice_spacing = 66
+define gui.choice_spacing = 22
 
 ## 标题菜单和游戏菜单的导航部分中的按钮。
 define gui.navigation_spacing = 18
@@ -284,8 +284,8 @@ define gui.main_menu_text_xalign = 1.0
 ## 通用框架。
 define gui.frame_borders = Borders(12, 12, 12, 12)
 
-## 用作确认界面部分的框架。
-define gui.confirm_frame_borders = Borders(120, 120, 120, 120)
+## 用作确认界面的圆角框架。
+define gui.confirm_frame_borders = Borders(38, 38, 38, 38)
 
 ## 用作快进界面部分的框架。
 define gui.skip_frame_borders = Borders(48, 15, 150, 15)

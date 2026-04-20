@@ -27,6 +27,7 @@ style gui_text:
 
 style button:
     properties gui.button_properties("button")
+    activate_sound "audio/button/confirmation_001.ogg"
 
 style button_text is gui_text:
     properties gui.text_properties("button")
@@ -142,7 +143,7 @@ style window:
 style namebox:
     xpos 426
     xanchor 0.0
-    ypos 1740
+    ypos 1710
     xminimum 220
 
     background Frame("gui/custom/namebox_round.png", 24, 24, 24, 24, tile=False)
@@ -219,26 +220,32 @@ style choice_button_text is button_text
 
 style choice_vbox:
     xalign 0.5
-    ypos 900
+    yalign 0.5
     yanchor 0.5
-
-    spacing gui.choice_spacing
+    xsize 1760
+    spacing 22
 
 style choice_button is default:
     properties gui.button_properties("choice_button")
-    xminimum 1560
-    left_padding 48
-    right_padding 48
-    top_padding 24
-    bottom_padding 24
-    background Solid(gui.surface_panel_soft)
-    hover_background Solid("#253250ea")
-    insensitive_background Solid("#11172888")
+    xfill True
+    ysize 108
+    left_padding 42
+    right_padding 42
+    top_padding 20
+    bottom_padding 20
+    background Frame("gui/custom/choice_button_idle.png", 24, 24, 24, 24, tile=False)
+    hover_background Frame("gui/custom/choice_button_hover.png", 24, 24, 24, 24, tile=False)
+    selected_idle_background Frame("gui/custom/choice_button_selected.png", 24, 24, 24, 24, tile=False)
+    selected_hover_background Frame("gui/custom/choice_button_selected.png", 24, 24, 24, 24, tile=False)
+    insensitive_background Frame("gui/custom/choice_button_idle.png", 24, 24, 24, 24, tile=False)
+    activate_sound "audio/button/switch_002.ogg"
 
 style choice_button_text is default:
     properties gui.text_properties("choice_button")
+    size 60
     color gui.idle_color
     hover_color gui.hover_color
+    outlines [(2, "#00000066", 0, 0)]
 
 
 transform menu_panel_intro:
@@ -267,6 +274,7 @@ screen quick_toggle_button():
         style "quick_toggle_button"
         action ToggleScreen("quick_hub")
         selected renpy.get_screen("quick_hub") is not None
+        activate_sound "audio/button/select_005.ogg"
 
         add "gui/custom/icons/settings.png":
             xalign 0.5
@@ -274,11 +282,13 @@ screen quick_toggle_button():
             zoom 0.56
 
 
-screen quick_hub_action(icon, label, click_action, alt_action=None):
+screen quick_hub_action(icon, label, click_action, alt_action=None, click_sound=None):
 
     button:
         style "quick_hub_button"
         action click_action
+        if click_sound is not None:
+            activate_sound click_sound
 
         if alt_action is not None:
             alternate alt_action
@@ -325,7 +335,7 @@ screen quick_hub():
                 use quick_hub_action("gui/custom/icons/save.png", _("保存"), [Hide("quick_hub"), ShowMenu('save')])
                 use quick_hub_action("gui/custom/icons/quicksave.png", _("快存"), [Hide("quick_hub"), QuickSave()])
                 use quick_hub_action("gui/custom/icons/quickload.png", _("快读"), [Hide("quick_hub"), QuickLoad()])
-                use quick_hub_action("gui/custom/icons/settings.png", _("设置"), [Hide("quick_hub"), ShowMenu('preferences')])
+                use quick_hub_action("gui/custom/icons/settings.png", _("设置"), [Hide("quick_hub"), ShowMenu('preferences')], click_sound="audio/button/select_005.ogg")
 
             textbutton _("返回游戏") action Hide("quick_hub"):
                 style "quick_hub_close_button"
@@ -494,7 +504,9 @@ screen navigation():
             textbutton _("历史") action ShowMenu("history")
             textbutton _("保存") action ShowMenu("save")
             textbutton _("读取游戏") action ShowMenu("load")
-            textbutton _("设置") action ShowMenu("preferences")
+            textbutton _("设置"):
+                action ShowMenu("preferences")
+                activate_sound "audio/button/select_005.ogg"
 
             if _in_replay:
 
@@ -567,7 +579,7 @@ style main_nav_caption:
     outlines [(2, "#00000066", 0, 0)]
 
 style main_nav_subcaption:
-    size 42
+    size 30
     color gui.idle_small_color
     outlines [(2, "#00000066", 0, 0)]
 
@@ -578,17 +590,19 @@ style main_nav_button:
     right_padding 40
     top_padding 16
     bottom_padding 16
-    background Frame("gui/custom/main_menu_nav_idle.png", 24, 24, 24, 24, tile=False)
-    hover_background Frame("gui/custom/main_menu_nav_hover.png", 24, 24, 24, 24, tile=False)
-    selected_idle_background Frame("gui/custom/main_menu_nav_selected.png", 24, 24, 24, 24, tile=False)
-    selected_hover_background Frame("gui/custom/main_menu_nav_selected.png", 24, 24, 24, 24, tile=False)
-    insensitive_background Frame("gui/custom/main_menu_nav_idle.png", 24, 24, 24, 24, tile=False)
+    background Frame("gui/custom/textbox_round.png", 38, 38, 38, 38, tile=False)
+    hover_background Frame("gui/custom/textbox_round.png", 38, 38, 38, 38, tile=False)
+    selected_idle_background Frame("gui/custom/textbox_round.png", 38, 38, 38, 38, tile=False)
+    selected_hover_background Frame("gui/custom/textbox_round.png", 38, 38, 38, 38, tile=False)
+    insensitive_background Frame("gui/custom/textbox_round.png", 38, 38, 38, 38, tile=False)
+    activate_sound "audio/button/confirmation_001.ogg"
 
 style main_nav_button_text:
     properties gui.text_properties("navigation_button")
     size 58
     color gui.idle_color
     hover_color gui.hover_color
+    outlines [(2, "#00000066", 0, 0)]
 
 
 ## 标题菜单屏幕 ######################################################################
@@ -656,7 +670,7 @@ style main_menu_brand_panel:
     ypos 1736
     xsize 1220
     padding (48, 38, 48, 34)
-    background Frame("gui/custom/main_menu_brand_panel.png", 30, 30, 30, 30, tile=False)
+    background Frame("gui/custom/textbox_round.png", 38, 38, 38, 38, tile=False)
 
 style main_menu_title:
     properties gui.text_properties("title")
@@ -664,7 +678,7 @@ style main_menu_title:
     size 116
 
 style main_menu_tagline:
-    size 34
+    size 30
     color gui.idle_small_color
 
 style main_menu_version:
@@ -1420,9 +1434,11 @@ screen confirm(message, yes_action, no_action):
 
     style_prefix "confirm"
 
-    add "gui/overlay/confirm.png"
+    add Solid("#050816aa")
 
     frame:
+        background Frame("gui/custom/textbox_round.png", gui.confirm_frame_borders, tile=False)
+        padding gui.confirm_frame_borders.padding
 
         vbox:
             xalign .5
@@ -1451,14 +1467,14 @@ style confirm_button is gui_medium_button
 style confirm_button_text is gui_medium_button_text
 
 style confirm_frame:
-    background Frame([ "gui/confirm_frame.png", "gui/frame.png"], gui.confirm_frame_borders, tile=gui.frame_tile)
-    padding gui.confirm_frame_borders.padding
     xalign .5
     yalign .5
 
 style confirm_prompt_text:
     textalign 0.5
     layout "subtitle"
+    color gui.idle_color
+    outlines [(2, "#00000066", 0, 0)]
 
 style confirm_button:
     properties gui.button_properties("confirm_button")

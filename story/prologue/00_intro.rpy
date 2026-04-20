@@ -1,5 +1,7 @@
 label pro_00_intro:
 
+    stop music fadeout 1.0
+
     scene bg school_hallway_day with fade
 
     show xinyi normal at stand_left

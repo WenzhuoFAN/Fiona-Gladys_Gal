@@ -52,6 +52,14 @@ define config.has_music = True
 define config.has_voice = True
 
 
+init python:
+    def say_allow_dismiss_sound():
+        renpy.play("audio/button/bong_001.ogg", channel="sound")
+        return True
+
+    config.say_allow_dismiss = say_allow_dismiss_sound
+
+
 ## 为了让用户在音效或语音轨道上播放测试音频，请取消对下面一行的注释并设置播放的
 ## 样本声音。
 
@@ -62,7 +70,7 @@ define config.has_voice = True
 ## 将以下语句取消注释就可以设置标题界面播放的背景音乐文件。此文件将在整个游戏中
 ## 持续播放，直至音乐停止或其他文件开始播放。
 
-# define config.main_menu_music = "main-menu-theme.ogg"
+define config.main_menu_music = "audio/bgm/独一无二的你 伴奏 有和声.wav"
 
 
 ## 转场 ##########################################################################

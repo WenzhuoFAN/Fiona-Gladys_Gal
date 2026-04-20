@@ -1,4 +1,4 @@
-label ch1_02_group_reconnect:
+label cha1_02_group_reconnect:
 
     n "总算都来了。"
     j "再晚一点，这地方真的要关门了。"

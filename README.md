@@ -28,9 +28,9 @@ FionaGladysGal/
 |   |   +-- 01_practice_days.rpy
 |   |   `-- 02_regret_night.rpy
 |   +-- chapter1/
-|   |   +-- 00_reunion.rpy
-|   |   +-- 01_old_stage.rpy
-|   |   `-- 02_group_reconnect.rpy
+|   |   +-- cha1_00_reunion.rpy
+|   |   +-- cha1_01_old_stage.rpy
+|   |   `-- cha1_02_group_reconnect.rpy
 |   +-- routes/
 |   |   +-- common_route.rpy
 |   |   +-- xinyi_route.rpy
@@ -87,20 +87,22 @@ English:
 
 English:
 
-- Labels: `pro_00_intro`, `ch1_01_old_stage`, `route_xinyi`, `ending_true`
+- Labels: `pro_00_intro`, `cha1_00_reunion`, `route_xinyi`, `ending_true`
 - Variables: `aff_xinyi`, `aff_sinuo`, `flag_prologue_cleared`
 - Images: `image xinyi normal`, `image sinuo normal`
 - Backgrounds: `image bg school_gate_day`, `image bg city_street_night_rain`
 - CGs: `image cg prologue_rooftop_promise`, `image cg route_xinyi_backstage_confession`
+- Chapter file prefix: `cha1_00_...`, `cha1_01_...`, `cha1_02_...`
 - Audio aliases: `audio.bgm_prologue`, `audio.se_stage_door`
 
 中文：
 
-- 标签：`pro_00_intro`、`ch1_01_old_stage`、`route_xinyi`、`ending_true`
+- 标签：`pro_00_intro`、`cha1_00_reunion`、`route_xinyi`、`ending_true`
 - 变量：`aff_xinyi`、`aff_sinuo`、`flag_prologue_cleared`
 - 图片：`image xinyi normal`、`image sinuo normal`
 - 背景图：`image bg school_gate_day`、`image bg city_street_night_rain`
 - CG：`image cg prologue_rooftop_promise`、`image cg route_xinyi_backstage_confession`
+- 章节文件前缀：`cha1_00_...`、`cha1_01_...`、`cha1_02_...`
 - 音频别名：`audio.bgm_prologue`、`audio.se_stage_door`
 
 ## Background And CG Rules / 背景图与 CG 规范

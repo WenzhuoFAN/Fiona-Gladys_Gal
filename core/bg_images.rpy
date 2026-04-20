@@ -27,4 +27,11 @@
 #   scene bg school_gate_day with fade
 #   scene bg city_street_night_rain with dissolve
 
-image bg school_hallway_day = "images/bg/school/hallway_day.png"
+# Keep backgrounds full-screen and centered instead of leaving transparent margins.
+image bg school_hallway_day = Transform(
+    "images/bg/school/hallway_day.png",
+    xysize=(3840, 2160),
+    fit="cover",
+    xalign=0.5,
+    yalign=0.5,
+)

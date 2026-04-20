@@ -8,4 +8,4 @@ label pro_02_regret_night:
     hide xinyi
     hide sinuo
 
-    jump ch1_00_reunion
+    jump cha1_00_reunion

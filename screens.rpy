@@ -451,57 +451,35 @@ screen navigation():
 
     if main_menu:
 
-        frame:
-            style "navigation_panel"
+        vbox:
+            xpos 96
+            ypos 156
+            xmaximum 760
+            spacing 34
             at menu_panel_intro
 
-            fixed:
-                add Solid(gui.surface_line):
-                    xpos 28
-                    ypos 0
-                    xsize 2
-                    ysize 1992
+            text _("DUAL STAGE"):
+                style "main_nav_caption"
 
-                add Solid(gui.dual_blue):
-                    xpos 42
-                    ypos 0
-                    xsize 6
-                    ysize 1992
+            text _("待定"):
+                style "main_nav_subcaption"
 
-                add Solid(gui.dual_pink):
-                    xpos 942
-                    ypos 0
-                    xsize 6
-                    ysize 1992
+            null height 76
 
-                vbox:
-                    xpos 96
-                    yalign 0.5
-                    xmaximum 744
-                    spacing 18
+            vbox:
+                style_prefix "main_nav"
+                spacing 32
 
-                    text _("DUAL STAGE"):
-                        style "navigation_caption"
+                textbutton _("开始游戏") action Start()
+                textbutton _("读取游戏") action ShowMenu("load")
+                textbutton _("设置") action ShowMenu("preferences")
+                textbutton _("关于") action ShowMenu("about")
 
-                    text _("双主角视觉小说"):
-                        style "navigation_subcaption"
+                if renpy.variant("pc") or (renpy.variant("web") and not renpy.variant("mobile")):
+                    textbutton _("帮助") action ShowMenu("help")
 
-                    null height 54
-
-                    vbox:
-                        style_prefix "navigation"
-                        spacing gui.navigation_spacing
-
-                        textbutton _("开始游戏") action Start()
-                        textbutton _("读取游戏") action ShowMenu("load")
-                        textbutton _("设置") action ShowMenu("preferences")
-                        textbutton _("关于") action ShowMenu("about")
-
-                        if renpy.variant("pc") or (renpy.variant("web") and not renpy.variant("mobile")):
-                            textbutton _("帮助") action ShowMenu("help")
-
-                        if renpy.variant("pc"):
-                            textbutton _("退出") action Quit(confirm=not main_menu)
+                if renpy.variant("pc"):
+                    textbutton _("退出") action Quit(confirm=not main_menu)
 
     else:
 
@@ -544,6 +522,10 @@ style navigation_caption is gui_text
 style navigation_subcaption is gui_text
 style navigation_button is gui_button
 style navigation_button_text is gui_button_text
+style main_nav_caption is gui_text
+style main_nav_subcaption is gui_text
+style main_nav_button is button
+style main_nav_button_text is button_text
 
 style navigation_panel:
     xpos 96
@@ -579,6 +561,35 @@ style navigation_button_text:
     color gui.idle_color
     hover_color gui.hover_color
 
+style main_nav_caption:
+    size 32
+    color gui.dual_blue
+    outlines [(2, "#00000066", 0, 0)]
+
+style main_nav_subcaption:
+    size 42
+    color gui.idle_small_color
+    outlines [(2, "#00000066", 0, 0)]
+
+style main_nav_button:
+    xsize 700
+    ysize 92
+    left_padding 40
+    right_padding 40
+    top_padding 16
+    bottom_padding 16
+    background Frame("gui/custom/main_menu_nav_idle.png", 24, 24, 24, 24, tile=False)
+    hover_background Frame("gui/custom/main_menu_nav_hover.png", 24, 24, 24, 24, tile=False)
+    selected_idle_background Frame("gui/custom/main_menu_nav_selected.png", 24, 24, 24, 24, tile=False)
+    selected_hover_background Frame("gui/custom/main_menu_nav_selected.png", 24, 24, 24, 24, tile=False)
+    insensitive_background Frame("gui/custom/main_menu_nav_idle.png", 24, 24, 24, 24, tile=False)
+
+style main_nav_button_text:
+    properties gui.text_properties("navigation_button")
+    size 58
+    color gui.idle_color
+    hover_color gui.hover_color
+
 
 ## 标题菜单屏幕 ######################################################################
 ##
@@ -603,12 +614,13 @@ screen main_menu():
             at menu_panel_intro
 
             vbox:
-                spacing 16
+                xalign 0.5
+                spacing 12
 
                 text "[config.name!t]":
                     style "main_menu_title"
 
-                text _("舞台共演主题视觉小说"):
+                text _("待定"):
                     style "main_menu_tagline"
 
                 text _("Ver. [config.version]"):
@@ -643,22 +655,22 @@ style main_menu_brand_panel:
     xpos 2250
     ypos 1736
     xsize 1220
-    padding (42, 32, 42, 32)
-    background Solid("#0b102090")
+    padding (48, 38, 48, 34)
+    background Frame("gui/custom/main_menu_brand_panel.png", 30, 30, 30, 30, tile=False)
 
 style main_menu_title:
     properties gui.text_properties("title")
     color gui.idle_color
-    size 114
+    size 116
 
 style main_menu_tagline:
-    size 36
+    size 34
     color gui.idle_small_color
 
 style main_menu_version:
     properties gui.text_properties("version")
     color gui.dual_pink
-    size 48
+    size 46
 
 
 ## 游戏菜单屏幕 ######################################################################

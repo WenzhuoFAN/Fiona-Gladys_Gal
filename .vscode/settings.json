@@ -1,12 +1,17 @@
 {
   "files.associations": {
-    "*.rpy": "plaintext",
-    "*.rpym": "plaintext",
-    "*.rpymc": "plaintext"
+    "*.rpy": "renpy",
+    "*.rpym": "renpy"
   },
   "python.analysis.exclude": [
     "**/*.rpy",
     "**/*.rpym",
     "**/*.rpymc"
-  ]
+  ],
+  "files.exclude": {
+    "**/*.rpyc": true,
+    "**/*.rpa": true,
+    "**/*.rpymc": true,
+    "**/cache/": true
+  }
 }
